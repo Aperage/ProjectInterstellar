@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>        
+
+        var xmath = {
+            fibonacci : function(n) {
+                // etape recursive  n + (n-1)
+                if( n > 1 ) {
+                    return this.fibonacci(n-2) + this.fibonacci(n-1);  // 2
+                }         
+
+                // etape de base  (1)            
+                return 1;                   //
+            }
+        };
+
+        var suite = "";
+        for(var i=0; i<20; i++) {
+            suite += xmath.fibonacci(i) + (i<19 ? ", " : "");
+        }
+        console.log("Le nombre de Fibonacci: " +suite);    
+    </script>
+</head>
+<body>
+    Hello World
+</body>
+</html>
