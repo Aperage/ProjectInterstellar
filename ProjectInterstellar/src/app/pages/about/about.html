@@ -38,11 +38,39 @@
       </ion-item>
     </ion-list>
 
-    <p>
-      The Ionic Conference is a one-day conference featuring talks from the Ionic team. It is focused on Ionic applications being
-      built with Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2, Angular concepts, Webpack, Sass, and many
-      other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers
-      – making this the largest Ionic conference ever!
-    </p>
+    
+    <section>
+        <a href="javascript:;" class="btn btn-start solo">Démarrer une partie SOLO</a>
+        <a href="javascript:;" class="btn btn-start ai">Démarrer une partie AI</a>
+    </section>
+
+    <section class="tictactoe hide">
+            
+        <div class="col-12">    
+            <h2>Affrontement entre <span class="player1_name">Player 1</span> et <span class="player2_name">Player 2</span></h2>
+            <h4>Au tour de <span class="currentPlayer_name">Player 1</span> de jouer (<span class="currentPlayer_piece">X</span>)</h4>
+        </div>
+
+        <table class="board">
+            <tr>   
+
+                <td class="center">
+                    <a href="javascript:;"  class="case px2 px7">
+                        <span class="cell">?</span>
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+            
+        <div class="col-12 center result hide">
+            <span class="name"></span> <a href="javascript:;" class="btn btn-reset"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</a>
+        </div>
+    </section>
+    
+
+
+
+
   </div>
 </ion-content>

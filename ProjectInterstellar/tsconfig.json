@@ -6,10 +6,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "downlevelIteration": true,
     "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "module": "commonjs",
+    "lib": ["es2015", "dom",  "es2017"]
   }
 }
