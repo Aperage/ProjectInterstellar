@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
-import { SchedulePage } from '../schedule/schedule';
 
 
 const routes: Routes = [
@@ -9,19 +8,6 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      {
-        path: 'schedule',
-        children: [
-          {
-            path: '',
-            component: SchedulePage,
-          },
-          {
-            path: 'session/:sessionId',
-            loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
-          }
-        ]
-      },
       {
         path: 'speakers',
         children: [
@@ -40,15 +26,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'map',
-        children: [
-          {
-            path: '',
-            loadChildren: '../map/map.module#MapModule'
-          }
-        ]
-      },
-      {
         path: 'about',
         children: [
           {
@@ -59,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/app/tabs/schedule',
+        redirectTo: '/app/tabs/speakers',
         pathMatch: 'full'
       }
     ]

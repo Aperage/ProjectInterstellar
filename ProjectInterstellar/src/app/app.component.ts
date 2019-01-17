@@ -16,24 +16,14 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Schedule',
-      url: '/app/tabs/schedule',
-      icon: 'calendar'
-    },
-    {
       title: 'Speakers',
       url: '/app/tabs/speakers',
-      icon: 'contacts'
+      icon: 'logo-octocat'
     },
     {
-      title: 'Map',
-      url: '/app/tabs/map',
-      icon: 'map'
-    },
-    {
-      title: 'About',
+      title: 'Connect 4',
       url: '/app/tabs/about',
-      icon: 'information-circle'
+      icon: 'grid'
     }
   ];
   loggedIn = false;
@@ -95,9 +85,4 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openTutorial() {
-    this.menu.enable(false);
-    this.storage.set('ion_did_tutorial', false);
-    this.router.navigateByUrl('/tutorial');
-  }
 }

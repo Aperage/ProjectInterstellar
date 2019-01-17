@@ -13,59 +13,38 @@
 </ion-header>
 
 <ion-content>
-  <div class="about-header">
-    <img src="assets/img/ionic-logo-white.svg" alt="ionic logo">
-  </div>
   <div padding class="about-info">
-    <h4>Ionic Conference</h4>
-
-    <ion-list lines="none">
-      <ion-item>
-        <ion-icon name="calendar" slot="start"></ion-icon>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="pin" slot="start"></ion-icon>
-        <ion-label>Location</ion-label>
-        <ion-select>
-          <ion-select-option value="madison" selected>Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
 
     
     <section>
-        <a href="javascript:;" class="btn btn-start solo">Démarrer une partie SOLO</a>
-        <a href="javascript:;" class="btn btn-start ai">Démarrer une partie AI</a>
+        <a href="javascript:;" (click)="startGame()"  class="btn btn-start ai"><ion-icon name="ionitron"></ion-icon> Démarrer une partie AI</a>
     </section>
 
     <section class="tictactoe hide">
             
         <div class="col-12">    
             <h2>Affrontement entre <span class="player1_name">Player 1</span> et <span class="player2_name">Player 2</span></h2>
-            <h4>Au tour de <span class="currentPlayer_name">Player 1</span> de jouer (<span class="currentPlayer_piece">X</span>)</h4>
+            <p>
+              <ion-button (click)="playMove()">
+                <ion-icon slot="icon-only" name="more"></ion-icon> Play an AI move
+              </ion-button>
+            </p>
+            <h4 *ngIf="!this.winner" [style.color]="currentPlayer.color">Au tour de {{ currentPlayer.name }} de jouer.</h4>
+            <h4 *ngIf="this.winner" [style.color]="green">Le gagnant est {{ currentWinner }}</h4>
         </div>
 
         <table class="board">
-            <tr>   
+            <tr *ngFor="let row of theBoard">   
 
-                <td class="center">
-                    <a href="javascript:;"  class="case px2 px7">
-                        <span class="cell">?</span>
+                <td class="center  cell-{{col}}" *ngFor="let col of row; index as i">
+                    <a (click)="playMove(i)" href="javascript:;"  class="case px2 px7">
+                        <span class="cell">{{ col }}</span>
                     </a>
                 </td>
 
             </tr>
         </table>
             
-        <div class="col-12 center result hide">
-            <span class="name"></span> <a href="javascript:;" class="btn btn-reset"><i class="fa fa-refresh" aria-hidden="true"></i> Reset</a>
-        </div>
     </section>
     
 
